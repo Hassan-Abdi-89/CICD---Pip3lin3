@@ -21,3 +21,4 @@ if __name__ == "__main__":
         print("Usage: python analyzer.py <logfile>")
     else:
         analyze(sys.argv[1])
+

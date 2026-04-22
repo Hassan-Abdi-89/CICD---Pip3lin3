@@ -18,3 +18,4 @@ def test_detect_bruteforce():
 
     result = detect_bruteforce(logs, threshold=3)
     assert "1.1.1.1" in result
+
