@@ -1,5 +1,5 @@
 import sys
-from utils import parse_log_line, detect_bruteforce
+from app.utils import parse_log_line, detect_bruteforce
 
 
 def analyze(file_path):
