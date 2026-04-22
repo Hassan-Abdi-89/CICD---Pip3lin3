@@ -15,4 +15,3 @@ def detect_bruteforce(logs, threshold=3):
 
     suspicious = [ip for ip, count in ip_count.items() if count >= threshold]
     return suspicious
-
