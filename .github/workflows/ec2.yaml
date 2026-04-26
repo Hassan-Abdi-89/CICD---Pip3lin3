@@ -1,0 +1,30 @@
+name: Deploy to EC2
+on: 
+    workflow_run:
+        workflows: ["Continous Deployment"]
+        types:
+            - completed
+        branches: ["main"]
+jobs:
+    deploy:
+# Only deploy if CD workflow passed
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        runs-on: ubuntu-latest
+
+        steps:
+   # SSH into EC2 and deploy the latest Docker image from Docker Hub
+        - name: Deploy to EC2 via SSH
+          uses: appleboy/ssh-action@v1.0.3
+          with:
+            #EC2 public IP address
+            host: ${{ secrets.EC2_HOST }}
+            #EC2 SSH username
+            username: ${{ secrets.EC2_USER }}
+            #EC2 SSH private key 
+            key: ${{ secrets.EC2_SSH_KEY }}
+            #Commands to pull the latest Docker image and restart the container
+            script: |
+              docker pull ${{ secrets.DOCKER_USERNAME }}/log-analyzer:latest
+              docker stop log-analyzer || true
+              docker rm log-analyzer || true
+              docker run -d --name log-analyzer -p 80:80 ${{ secrets.DOCKER_USERNAME }}/log-analyzer:latest
