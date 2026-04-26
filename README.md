@@ -84,7 +84,7 @@ for f in files:
 "
 ```
 
-![Fix flake8 newline](image.png)
+![Fix flake8 newline](screenshots/image.png)
 
 
 ---
@@ -95,7 +95,7 @@ for f in files:
  
 **Fix:** Updated the inbound rule for port 22 to allow `0.0.0.0/0` so GitHub Actions could connect.
 
-![SSH BLOCKED](image-1.png)
+![SSH BLOCKED](screenshots/image-1.png)
 
  
 ---
@@ -113,11 +113,11 @@ for f in files:
 
  
 ---
-![Workflow running](image-2.png)
+![Workflow running](screenshots/image-2.png)
 
-![workflows running ](image-4.png)
+![workflows running ](screenshots/image-4.png)
 
-![EC2-Docker running](image-3.png)
+![EC2-Docker running](screenshots/image-3.png)
 ---
 
 ## 📚 What I Learnt
