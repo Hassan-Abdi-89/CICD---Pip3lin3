@@ -6,6 +6,7 @@ COPY  requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY app/ app/
+
 COPY sample.log .
 
-CMD ["python", "app/analyzer.py", "sample.log"]
+CMD ["python", "-m", "app.analyzer", "sample.log"]
